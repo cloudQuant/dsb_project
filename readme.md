@@ -1,4 +1,5 @@
 ### another question, c++ use python function
+从statsmodels.tsa.stattools调用adfuller实现adf检验
 
 ### 实现过程
 1. 编写my_adf.pyx, setup.py，实现需要的函数
@@ -25,6 +26,20 @@ g++ main.cpp -I$(python3-config --includes) -L/Users/yunjinqi/opt/anaconda3/lib 
 // 运行main
 ./main
 ```
+
+在ubuntu上进行编译
+```
+// 编译出来pyd文件
+python setup.py build_ext --inplace
+//设置 LD_LIBRARY_PATH
+export LD_LIBRARY_PATH=/home/yun/anaconda3/lib:$LD_LIBRARY_PATH
+// 编译main.cpp
+g++ main.cpp -I$(python3-config --includes) -L$(python3-config --prefix)/lib -lpython3.11 -o main
+// 运行main
+./main
+```
+
+
 
 
 

@@ -57,6 +57,8 @@ inline std::vector<double> my_c_function(std::vector<double> vec){
     // 添加Python模块路径
     PyRun_SimpleString("import sys");
     PyRun_SimpleString("sys.path.append('.')");
+    // PyRun_SimpleString("print(sys.path)");  // 打印当前的 sys.path
+
     // 导入Cython生成的模块
     PyObject* pModule = PyImport_ImportModule("my_adf");
     if (!pModule) {
